@@ -55,11 +55,11 @@ int find_next(int number){
         //현재 k가 홀수인 경우
         //현재 갈림길에서 왼쪽으로 이동.
         next_root = find_sub_tree(left);
-        curr_k = curr_k / 2 + 1;
+        curr_k = (long long)(curr_k / 2 + 1);
     }
     else{
         next_root = find_sub_tree(right);
-        curr_k = curr_k / 2;
+        curr_k = (long long)(curr_k / 2);
     }
     return next_root;
     
