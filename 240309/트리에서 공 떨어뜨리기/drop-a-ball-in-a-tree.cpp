@@ -23,7 +23,7 @@ long long k;
 bool find_answer = false;
 //리프 노드에 도착하면 true로 저장
 int answer = -1;
-long long curr_k = 0;
+long long curr_k;
 
 int find_sub_tree(int number){
     //number에서 시작해서 다음 서브트리의 루트 번호를 찾는 함수.
@@ -55,11 +55,12 @@ int find_next(int number){
         //현재 k가 홀수인 경우
         //현재 갈림길에서 왼쪽으로 이동.
         next_root = find_sub_tree(left);
-        curr_k = curr_k / (long long)2 + (long long)1;
+        curr_k++;
+        curr_k = curr_k >> 1;
     }
     else{
         next_root = find_sub_tree(right);
-        curr_k = curr_k / (long long)2;
+        curr_k = curr_k >> 1;
     }
     return next_root;
     
