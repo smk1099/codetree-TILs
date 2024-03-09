@@ -28,7 +28,10 @@ int find_sub_tree(int number){
     //number에서 시작해서 다음 서브트리의 루트 번호를 찾는 함수.
     int left, right;
     tie(left, right) = tree[number];
-    if(left != -1 && right != -1){
+    if(left == -1 && right == -1){
+        //리프노드인 경우 정답을 체크하고 리턴.
+        find_answer = true;
+        answer = number;
         return number;
     }
     else if(left != -1){
@@ -38,10 +41,8 @@ int find_sub_tree(int number){
         find_sub_tree(right);
     }
     else{
-        find_answer = true;
-        answer = number;
         return number;
-        //리프노드인 경우 정답을 체크하고 리턴.
+
     }
 }
 
