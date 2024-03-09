@@ -79,6 +79,6 @@ int main() {
     while(!find_answer){
         next_number = find_next(next_number);
     }
-    cout << answer;
+    cout << next_number;
     return 0;
 }
