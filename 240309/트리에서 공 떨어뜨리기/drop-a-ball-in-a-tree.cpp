@@ -18,11 +18,12 @@ using namespace std;
 
 vector<pair<int, int>> tree(200001, {-1, -1});
 //first가 왼쪽, second가 오른쪽 자식 노드 번호를 저장하는 이진 트리.
-int n, k;
+int n;
+long long k;
 bool find_answer = false;
 //리프 노드에 도착하면 true로 저장
 int answer = -1;
-int curr_k = 0;
+long long curr_k = 0;
 
 int find_sub_tree(int number){
     //number에서 시작해서 다음 서브트리의 루트 번호를 찾는 함수.
