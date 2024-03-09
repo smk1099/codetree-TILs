@@ -34,14 +34,14 @@ int find_sub_tree(int number){
         answer = number;
         return number;
     }
+    else if(left != -1 && right != -1){
+        return number;
+    }
     else if(left != -1){
         return find_sub_tree(left);
     }
     else if(right != -1){
         return find_sub_tree(right);
-    }
-    else{
-        return number;
     }
 }
 
@@ -58,7 +58,7 @@ int find_next(int number){
     else{
         next_root = find_sub_tree(right);
     }
-    curr_k /= 2;
+    curr_k = curr_k / 2;
     return next_root;
     
 };
