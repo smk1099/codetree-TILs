@@ -35,14 +35,13 @@ int find_sub_tree(int number){
         return number;
     }
     else if(left != -1){
-        find_sub_tree(left);
+        return find_sub_tree(left);
     }
     else if(right != -1){
-        find_sub_tree(right);
+        return find_sub_tree(right);
     }
     else{
         return number;
-
     }
 }
 
