@@ -4,9 +4,8 @@ using namespace std;
 
 /*
 전위 순회는 어쨋든 부모를 먼저 체크하는 것.
-즉, 다음 숫자가 자기 자신보다 큰 숫자가 나오는 경우 무조건 오른쪽 자식이라는 뜻.
 나보다 작은 수면 바로 내 왼쪽 자식으로 설정.
-나보다 큰 수면 부모 숫자보다 큰지 확인해서 부모의 숫자보다 큰지 확인해서 
+나보다 큰 수면 부모 숫자보다 큰지 확인해서 
 부모의 숫자보다 크면 과정을 반복하고 아니면 내 오른쪽 자식으로 설정
 */
 int n;
@@ -35,9 +34,13 @@ int main() {
         else{
             while(curr_num < input_num){
                 parent_num = parent[curr_num];
-                if(parent_num == -1 || parent_num > input_num){
+                if(parent_num == -1){
                     right_child[curr_num] = input_num;
-                    parent[input_num] = curr_num;
+                    break;
+                }
+                else if(parent_num > input_num){
+                    right_child[curr_num] = input_num;
+                    parent[input_num] = parent_num;
                     break;
                 }
                 curr_num = parent_num;
