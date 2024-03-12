@@ -24,12 +24,14 @@ int main() {
             }
         }
     }
+    int start = arr[0][0];
+    int end = arr[r - 1][c - 1];
     for(int i = 1; i < r - 1; i++){
         for(int j = 1; j < c - 1; j++){
-            if(arr[i][j] == 1){
+            if(arr[i][j] == 1 - start){
                 for(int x = i + 1; x < r - 1; x++){
                     for(int y = j + 1; y < c - 1; y++){
-                        if(arr[x][y] == 0){
+                        if(arr[x][y] == start && arr[x][y] == 1- end){
                             answer++;
                         }
                     }
