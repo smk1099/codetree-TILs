@@ -35,7 +35,7 @@ void dfs(int number){
     dp[number][1] += 1;
     for(int i = 0; i < graph[number].size(); i++){
         int next_number = graph[number][i];
-        dp[number][1] += dp[next_number][0];
+        dp[number][1] += min(dp[next_number][0], dp[next_number][1]);
         dp[number][0] += dp[next_number][1];
     }
 }
