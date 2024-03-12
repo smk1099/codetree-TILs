@@ -30,9 +30,9 @@ void set_tree(int start, int end, int in_start, int in_end){
         left_subtree_length++;
     }
 
-    set_tree(start + 1, start + left_subtree_length, in_start, in_start + left_subtree_length);
+    set_tree(start + 1, start + left_subtree_length, in_start, in_start + left_subtree_length - 1);
     //왼쪽 서브트리
-    set_tree(start + left_subtree_length + 1, end, in_start + left_subtree_length + 2, in_end);
+    set_tree(start + left_subtree_length + 1, end, in_start + left_subtree_length + 1, in_end);
     //오른쪽 서브트리
 
     //루트를 마지막으로 탐색
