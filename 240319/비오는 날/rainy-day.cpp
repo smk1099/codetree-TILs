@@ -7,7 +7,7 @@
 #include <climits>
 using namespace std;
 
-int current_day = 2024 * 365 + 3 * 30 + 19;
+
 
 class Information{
     public:
@@ -18,7 +18,7 @@ class Information{
     string day_of_week;
     string weather;
     void calc(){
-        current_by_gap = abs(year * 365 + month * 30 + day - current_day);
+        current_by_gap = abs(year * 365 + month * 30 + day);
     }
     Information(){
         year = 2000;
