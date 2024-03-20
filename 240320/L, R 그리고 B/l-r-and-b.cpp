@@ -29,8 +29,21 @@ int main() {
         }
     }
     int answer =  abs(b_x - l_x) + abs(b_y - l_y);
-    if((l_x == r_x && r_x == b_x) || (l_y == r_y && r_y == b_y)){
-        answer += 2;
+    if(l_x == r_x && r_x == b_x){
+        if(l_x < r_x && r_x < b_x){
+             answer += 2;
+        }
+        else if(l_x > r_x && r_x > b_x){
+             answer += 2;
+        }
+    } 
+    else if(l_y == r_y && r_y == b_y){
+        if(l_y < r_y && r_y < b_y){
+             answer += 2;
+        }
+        else if(l_y > r_y && r_y > b_y){
+             answer += 2;
+        }
     }
 
     cout << answer - 1;
