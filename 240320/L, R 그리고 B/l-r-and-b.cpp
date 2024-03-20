@@ -32,10 +32,7 @@ int main() {
     if((l_x == r_x && r_x == b_x) || (l_y == r_y && r_y == b_y)){
         answer += 2;
     }
-    else{
-        answer--;
-    }
 
-    cout << answer;
+    cout << answer - 1;
     return 0;
 }
