@@ -5,8 +5,8 @@ using namespace std;
 int main() {
     int a, b, c;
     a = b = c = 0;
-    int winner = 6;
-    pair<int, int> game[3] = {{0, 1}, {0, 2}, {0, 3}};
+    int winner = 7;
+    pair<int, int> game[3] = {{0, 1}, {0, 2}, {0, 4}};
     int n;
     cin >> n;
     int answer = 0;
@@ -14,17 +14,20 @@ int main() {
         char c;
         int s;
         cin >> c >> s;
-        for(int i = 0; i < 3; i++){
-            if(get<1>(game[i]) == (int)(c - 'A') + 1){
-                get<0>(game[i]) += s;
+        if(c == 'C'){
+            c = 'D';
+        }
+        for(int j = 0; j < 3; j++){
+            if(get<1>(game[j]) == (int)(c - 'A') + 1){
+                get<0>(game[j]) += s;
             }
         }
         sort(game, game + 3);
         int cur_win = 0;
-        int min_val = get<0>(game[2]);
-        for(int i = 0; i < 3; i++){
-            if(min_val == get<0>(game[i])){
-                cur_win += get<1>(game[i]);
+        int max_val = get<0>(game[2]);
+        for(int j = 0; j < 3; j++){
+            if(max_val == get<0>(game[j])){
+                cur_win += get<1>(game[j]);
             }
         }
         if(cur_win != winner){
