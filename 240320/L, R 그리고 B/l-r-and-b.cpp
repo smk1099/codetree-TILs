@@ -18,6 +18,10 @@ int main() {
                 b_x = i;
                 b_y = j;
             }
+            if(input == 'R'){
+                r_x = i;
+                r_y = j;
+            }
             if(input == 'L'){
                 l_x = i;
                 l_y = j;
