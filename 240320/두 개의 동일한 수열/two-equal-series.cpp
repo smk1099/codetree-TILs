@@ -6,7 +6,7 @@ using namespace std;
 
 int main() {
     ios_base::sync_with_stdio(false);
-    cin.tie(null);
+    cin.tie(NULL);
 
     unordered_map<int, int> m;
     int n;
