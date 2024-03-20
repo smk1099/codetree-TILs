@@ -29,8 +29,8 @@ int main() {
             winner = 1;
             answer++;
         }
-        else if(A == B && winner != 3){
-            winner = 3;
+        else if(A == B && winner != 0){
+            winner = 0;
             answer++;
         }
     }
