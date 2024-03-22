@@ -32,7 +32,7 @@ int main() {
             combine(a, b);
         }
         else{
-            if(parent[a] == parent[b]){
+            if(find(a) == find(b)){
                 cout << 1 << "\n";
             }
             else{
