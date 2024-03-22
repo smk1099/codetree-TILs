@@ -17,12 +17,14 @@ int find(int a){
 }
 
 void combine(int x, int y){
-    vertex_count[find(y)] += vertex_count[find(x)];
+    if(uf[find(x)] != uf[find(y)]){
+        vertex_count[find(y)] += vertex_count[find(x)];
+    }
     uf[find(x)] = uf[find(y)];
 }
 int main() {
-    // ios_base::sync_with_stdio(false);
-    // cin.tie(NULL);
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
     int n, m;
     cin >> n >> m;
     for(int i = 1; i <= n; i++){
