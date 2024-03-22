@@ -21,8 +21,8 @@ void combine(int x, int y){
     uf[find(x)] = uf[find(y)];
 }
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+    // ios_base::sync_with_stdio(false);
+    // cin.tie(NULL);
     int n, m;
     cin >> n >> m;
     for(int i = 1; i <= n; i++){
