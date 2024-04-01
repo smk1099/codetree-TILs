@@ -34,7 +34,7 @@ int main() {
         }
     }
     cin >> num;
-    int dir = ((num / 4) + 2) % 4;
+    int dir = ((num / n) + 2) % 4;
 
     // 초기 위치 세팅
     int tmp_dir = 1;
