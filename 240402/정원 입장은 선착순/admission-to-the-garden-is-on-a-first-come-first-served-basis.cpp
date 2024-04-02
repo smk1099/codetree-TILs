@@ -36,6 +36,7 @@ int main() {
     while(count < n){
         int arrival_time, enjoy_time;
         if(pq.empty()){
+            //대기 중인 손님이 없다면
             tie(arrival_time, ignore, enjoy_time) = v[index];
             curr_delay_time = max(0, curr_time - arrival_time);
             answer = max(answer, curr_delay_time);
@@ -48,6 +49,7 @@ int main() {
             index++;
         }
         else{
+            //대기중인 손님 중 번호가 가장 앞선 손님 입장
             tie(ignore, arrival_time, enjoy_time) = pq.top();
             pq.pop();
             curr_delay_time = max(0, curr_time - arrival_time);
@@ -55,6 +57,7 @@ int main() {
             curr_time += enjoy_time;
         }
         for(index; index < n; index++){
+            //현재 시간을 기준으로 대기중인 손님들 큐에 삽입
             int next_a_time, next_number, next_e_time;
             tie(next_a_time, next_number, next_e_time) = v[index];
             if(curr_time < next_a_time){
