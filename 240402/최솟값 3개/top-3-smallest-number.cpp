@@ -28,6 +28,7 @@ int main() {
                 calc /= pq.top();
                 pq.pop();
                 calc *= num;
+                pq.push(num);
             }
             cout << calc;
         }
