@@ -32,7 +32,7 @@ int main() {
     }
     long long answer = 0;
     for(int i = 1; i < n; i++){
-        answer += move_cost[i] * charge_cost[min_charge_number[i]];
+        answer += (long long)move_cost[i] * charge_cost[min_charge_number[i]];
     }
 
     cout << answer;
