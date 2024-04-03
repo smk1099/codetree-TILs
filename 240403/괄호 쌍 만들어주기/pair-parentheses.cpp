@@ -14,7 +14,7 @@ int main() {
     string str;
     cin >> str;
     int n = str.size();
-    int answer = 0;
+    long long answer = 0;
     for(int i = 0; i < n; i++){
         back_count[i] = 0;
     }
