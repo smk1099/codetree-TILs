@@ -46,7 +46,7 @@ int main() {
     for(int i = 1; i < 1001; i++){
         y_pre_sum[i] = y_pre_sum[i - 1] + y_position[i];
         if(y_pre_sum[i] > n / 2){
-            if(y_pre_sum[i] > n - y_pre_sum[i - 1]){
+            if(y_pre_sum[i] >= n - y_pre_sum[i - 1]){
                 b = i - 1;
             }
             else{
