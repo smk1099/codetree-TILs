@@ -60,20 +60,20 @@ int main() {
     while(m--){
         sort(santa_v.begin(), santa_v.end(), cmp);
         //루돌프의 현재 위치에 따른 산타 정렬
-        cout << "--------\n";
-        cout << "루돌프 x : " << curr_monster_x << " y : " << curr_monster_y << "\n";
-        for(int i = 0; i < santa_v.size(); i++){
-            int num, x, y;
-            tie(num, x, y) = santa_v[i];
-            cout << num << " " << x << " " << y << " " << "\n";
-        }
-        for(int i = 1; i <=n; i++){
-            for(int j = 1; j <= n; j++){
-                cout << game_board[i][j] << ' ';
-            }
-            cout << "\n";
-        }
-        cout << "--------\n";
+        // cout << "--------\n";
+        // cout << "루돌프 x : " << curr_monster_x << " y : " << curr_monster_y << "\n";
+        // for(int i = 0; i < santa_v.size(); i++){
+        //     int num, x, y;
+        //     tie(num, x, y) = santa_v[i];
+        //     cout << num << " " << x << " " << y << " " << "\n";
+        // }
+        // for(int i = 1; i <=n; i++){
+        //     for(int j = 1; j <= n; j++){
+        //         cout << game_board[i][j] << ' ';
+        //     }
+        //     cout << "\n";
+        // }
+        // cout << "--------\n";
 
         //루돌프 움직임 시작
         //탈락하지 산타 중에 가장 가까운 산타 정보 획득
