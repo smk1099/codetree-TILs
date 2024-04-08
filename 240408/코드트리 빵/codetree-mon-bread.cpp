@@ -119,7 +119,7 @@ void move(int number){
             for(int i = 0; i < 4; i++){
                 int nx = curr_x + dx[i];
                 int ny = curr_y + dy[i];
-                if(dist[curr_x][curr_y] - 1 == dist[nx][ny]){
+                if(in_range(nx, ny) && dist[curr_x][curr_y] - 1 == dist[nx][ny]){
                     //이미 거리가 측정되어 있고 1 적은 경우가 다음 위치
                     x_position[number] = nx;
                     y_position[number] = ny;
@@ -165,7 +165,7 @@ int main() {
                 tie(x, y) = exits[i];
                 move_matrix[x][y] = 2;
             }
-            if(count == 0){
+            if(count == 0) {
                 time--;
             }
         }
