@@ -165,9 +165,7 @@ int main() {
                 tie(x, y) = exits[i];
                 move_matrix[x][y] = 2;
             }
-            if(count == 0) {
-                time--;
-            }
+            if(count == 0) break;
         }
         if(time <= m){
             //베이스캠프 선정
@@ -177,7 +175,9 @@ int main() {
             x_position[time] = x;
             y_position[time] = y;
         }
-        time++;
+        if(count > 0){
+            time++;
+        }
     }
     cout << time;
     return 0;
