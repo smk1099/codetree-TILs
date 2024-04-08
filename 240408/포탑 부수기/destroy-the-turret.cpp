@@ -10,6 +10,7 @@ using namespace std;
 int n, m, k;
 int towers[11][11];
 int last_attack[11][11];
+bool nice[11][11];
 pair<int, int> last_position[11][11]; //직전 위치 저장용
 bool visited[11][11];
 
@@ -50,8 +51,8 @@ bool attack1(int x1, int y1, int x2, int y2){
         tie(curr_x, curr_y) = q.front();
         q.pop();
         for(int i = 0; i < 4; i++){
-            int nx = (curr_x + dx[i] + n) % n;
-            int ny = (curr_y + dy[i] + m) % m;
+            int nx = (curr_x + dx[i] + n - 1) % n + 1;
+            int ny = (curr_y + dy[i] + m - 1) % m + 1;
             if(!visited[nx][ny] && towers[nx][ny] != 0){
                 last_position[nx][ny] = {curr_x, curr_y};
                 if(nx == x2 && ny == y2){
@@ -72,6 +73,7 @@ bool attack1(int x1, int y1, int x2, int y2){
         int curr_x, curr_y;
         tie(curr_x, curr_y) = last_position[x2][y2];
         while(!(curr_x == x1 && curr_y == y1)){
+            nice[curr_x][curr_y] = false;
             towers[curr_x][curr_y] =  max(0, towers[curr_x][curr_y] - towers[x1][y1] / 2);
             tie(curr_x, curr_y) = last_position[curr_x][curr_y];
         }
@@ -81,15 +83,17 @@ bool attack1(int x1, int y1, int x2, int y2){
 
 }
 
+
 void attack2(int x1, int y1, int x2, int y2){
     int dx[8] = {-1, -1, -1, 0, 0, 1, 1, 1};
     int dy[8] = {-1, 0, 1, -1, 1, -1, 0, 1};
-    for(int i = 0; i < 9; i++){
-        int nx = (x2 + dx[i] + n) % n;
-        int ny = (y2 + dy[i] + m) % m;
+    for(int i = 0; i < 8; i++){
+        int nx = (x2 + dx[i] + n - 1) % n + 1;
+        int ny = (y2 + dy[i] + m - 1) % m + 1;
         if(nx == x1 && ny == y1){
             continue;
         }
+        nice[nx][ny] = false;
         towers[nx][ny] =  max(0, towers[nx][ny] - towers[x1][y1] / 2);
     }
     towers[x2][y2] = max(0, towers[x2][y2] - towers[x1][y1]);
@@ -112,7 +116,7 @@ int main() {
                     v.push_back({i, j});
                 }
                 visited[i][j] = false;
-
+                nice[i][j] = true;
             }
         }
         if(v.size() <= 1){
@@ -126,7 +130,16 @@ int main() {
         if(!attack1(x1, y1, x2, y2)){
             attack2(x1, y1, x2, y2);
         }
+        nice[x1][y1] = false;
+        nice[x2][y2] = false;
         last_attack[x1][y1] = turn;
+        for(int i = 1; i <= n; i++){
+            for(int j = 1; j <= m; j++){
+                if(towers[i][j] != 0 && nice[i][j]){
+                    towers[i][j]++;
+                }
+            }
+        }
         turn++;
     }
     int answer = 0;
