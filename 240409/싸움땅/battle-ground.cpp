@@ -16,6 +16,8 @@ int y_position[31];
 int dx[4] = {-1, 0, 1, 0};
 int dy[4] = {0, 1, 0 ,-1};
 
+void move(int);
+
 bool in_range(int x, int y){
     return x >= 1 && y >= 1 && x <= n && y <= n;
 }
