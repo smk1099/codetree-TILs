@@ -133,7 +133,7 @@ void monster_move(){
         check_init();
     }
     else{
-        if(one_to_one){
+        if(!one_to_one){
             int next_dir = (monster_dir + 1) % 4;
             int nx = monster_x + dx[monster_dir];
             int ny = monster_y + dy[monster_dir];
