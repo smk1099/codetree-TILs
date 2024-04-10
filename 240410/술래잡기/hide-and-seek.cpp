@@ -133,19 +133,37 @@ void monster_move(){
         check_init();
     }
     else{
-        int next_dir = (monster_dir + 1) % 4;
-        int nx = monster_x + dx[monster_dir];
-        int ny = monster_y + dy[monster_dir];
-        if(!in_range(nx, ny)){
-            monster_dir = next_dir;
-        }
-        else{
-            nx = monster_x + dx[next_dir];
-            ny = monster_y + dy[next_dir];
-            if(!is_check[nx][ny]){
+        if(one_to_one){
+            int next_dir = (monster_dir + 1) % 4;
+            int nx = monster_x + dx[monster_dir];
+            int ny = monster_y + dy[monster_dir];
+            if(!in_range(nx, ny)){
                 monster_dir = next_dir;
             }
+            else{
+                nx = monster_x + dx[next_dir];
+                ny = monster_y + dy[next_dir];
+                if(!is_check[nx][ny]){
+                    monster_dir = next_dir;
+                }
+            }
         }
+        else{
+            int next_dir = (monster_dir + 3) % 4;
+            int nx = monster_x + dx[monster_dir];
+            int ny = monster_y + dy[monster_dir];
+            if(!in_range(nx, ny)){
+                monster_dir = next_dir;
+            }
+            else{
+                nx = monster_x + dx[monster_dir];
+                ny = monster_y + dy[monster_dir];
+                if(is_check[nx][ny]){
+                    monster_dir = next_dir;
+                }
+            }
+        }
+        
     }
     is_check[monster_x][monster_y] = true;
     for(int i = 0; i < 3; i++){
