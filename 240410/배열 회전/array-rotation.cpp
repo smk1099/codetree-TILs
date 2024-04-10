@@ -53,7 +53,7 @@ int main() {
             tmp[i][j] = matrix[i][j];
         }
     }
-    while(curr_x_len >= 1 && curr_y_len >= 1){
+    while(curr_x_len >= 2 && curr_y_len >= 2){
         rotate(curr_x, curr_y, curr_x_len, curr_y_len);
         curr_x++;
         curr_y++;
