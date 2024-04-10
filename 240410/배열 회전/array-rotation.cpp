@@ -42,6 +42,8 @@ void rotate(int x, int y, int x_len, int y_len){
 }
 
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
     cin >> n >> m >> k;
     int curr_x = 1;
     int curr_y = 1;
