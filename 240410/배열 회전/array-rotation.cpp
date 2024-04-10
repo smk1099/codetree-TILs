@@ -15,19 +15,27 @@ void rotate(int x, int y, int x_len, int y_len){
     if(length == 0) return;
     int real_k = k % length;
     int count[4] = {x_len - 1, y_len - 1, x_len - 1, y_len - 1};
+    int curr_x = x;
+    int curr_y = y;
     while(real_k--){
         for(int i = 0; i < 4; i++){
             for(int j = 0; j < count[i]; j++){
-                int nx = x + dx[i];
-                int ny = y + dy[i];
-                tmp[nx][ny] = matrix[x][y];
-                x = nx;
-                y = ny;
+                int nx = curr_x + dx[i];
+                int ny = curr_y + dy[i];
+                tmp[nx][ny] = matrix[curr_x][curr_y];
+                curr_x = nx;
+                curr_y = ny;
             }
         }
-        for(int i = 0; i < x_len; i++){
-            for(int j = 0; j < y_len; j++){
-                matrix[x + i][y + j] = tmp[x + i][y + j];
+        curr_x = x;
+        curr_y = y;
+        for(int i = 0; i < 4; i++){
+            for(int j = 0; j < count[i]; j++){
+                int nx = curr_x + dx[i];
+                int ny = curr_y + dy[i];
+                matrix[nx][ny] = tmp[nx][ny];
+                curr_x = nx;
+                curr_y = ny;
             }
         }
     }
