@@ -24,7 +24,7 @@ using namespace std;
 
 int r_position[31];
 int c_position[31];
-int matrix[31][31]; //산타들만 저장하는 격자
+int matrix[51][51]; //산타들만 저장하는 격자
 bool survive[31]; //산타들의 생존 여부
 int impossible[31]; //기절한 산타의 기절해 움직이지 못하는 최대 턴
 int score[31]; //산타들의 점수
